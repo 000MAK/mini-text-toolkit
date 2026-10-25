@@ -1,21 +1,30 @@
 # Mini Text Toolkit
 
-Normalizes whitespace and reports line, word, and character counts.
+A lightweight Python command-line utility that reports line, word, and character counts and can normalize whitespace into a separate output file.
 
-## Requirements
+**Independent demonstration project** · Python 3.10+ · Standard library only · MIT license
 
-- Python 3.10+
-- Standard library only; no `pip install` step required.
+## Features
 
-## Run
+- Counts lines, whitespace-separated words, and Unicode characters.
+- Computes a normalized text version using Python's whitespace splitting and joining.
+- Prints the summary to the terminal.
+- Optionally writes normalized text to a new destination file.
+- Rejects identical input and output paths and refuses to overwrite an existing destination.
+
+## Quick start
+
+Analyze a text file:
 
 ```bash
-python main.py --help
+python main.py notes.txt
 ```
 
-## Example
+Analyze and write a normalized copy:
 
-`python main.py notes.txt --normalize-to normalized.txt`
+```bash
+python main.py notes.txt --normalize-to normalized.txt
+```
 
 ## Tests
 
@@ -23,9 +32,19 @@ python main.py --help
 python -m unittest discover -s tests -v
 ```
 
-## Safety notes
+## Scope and limitations
 
-Use copies of important files. Review output before using it in production. Do not add credentials, private data, or real customer files to Git.
+Normalization collapses runs of whitespace, including line breaks, into single spaces. The output is therefore a single normalized text line rather than a preservation of the original paragraph layout. Keep the source file and review the normalized version before using it.
+
+## Related Quantix projects
+
+- [Mini Duplicate Line Finder](https://github.com/000MAK/mini-duplicate-line-finder)
+- [Mini CSV Cleaner](https://github.com/000MAK/mini-csv-cleaner)
+- [Quantix — 100 Mini Python Projects](https://github.com/000MAK/quantix-100-new-mini-projects)
+
+## Safety
+
+Use synthetic examples in public demonstrations; do not commit private notes or customer data.
 
 ## License
 
